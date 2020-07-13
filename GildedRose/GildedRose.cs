@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using GildedRose.Extensions;
 
 namespace GildedRose
 {
     public class GildedRose
     {
         IList<Item> Items;
+
         public GildedRose(IList<Item> Items)
         {
             this.Items = Items;
@@ -16,6 +18,42 @@ namespace GildedRose
         }
 
         public void UpdateQuality()
+        {
+            foreach (var item in Items)
+            {
+                var itemType = item.GetItemType();
+
+                switch (itemType)
+                {
+                    case ItemType.AgedBrie:
+                        HandleAgedBrie(item);
+                        break;
+
+                    case ItemType.BackStagePass:
+                        HandleBackStagePass(item);
+                        break;
+
+                    case ItemType.Conjured:
+                        HandleConjured(item);
+                        break;
+
+                    case ItemType.Other:
+                        HandleOther(item);
+                        break;
+
+                    case ItemType.Sulfuras:
+                        HandleSulfuras(item);
+                        break;
+                }
+            }
+        }
+
+        private static void HandleSulfuras(Item item)
+        {
+            return;
+        }
+
+        public void UpdateQualityOld()
         {
             for (var i = 0; i < Items.Count; i++)
             {
