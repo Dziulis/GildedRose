@@ -1,16 +1,16 @@
-﻿using System;
+﻿using ApprovalTests;
+using ApprovalTests.Reporters;
+using NUnit.Framework;
+using System;
 using System.IO;
 using System.Text;
-using ApprovalTests;
-using ApprovalTests.Reporters;
-using Xunit;
 
-namespace GildedRose
+namespace GildedRose.Tests
 {
     [UseReporter(typeof(DiffReporter))]
     public class ApprovalTest
     {
-        [Fact]
+        [Test]
         public void ThirtyDays()
         {
             var fakeoutput = new StringBuilder();
