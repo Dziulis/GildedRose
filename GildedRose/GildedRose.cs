@@ -10,6 +10,11 @@ namespace GildedRose
             this.Items = Items;
         }
 
+        public IList<Item> GetItems()
+        {
+            return Items;
+        }
+
         public void UpdateQuality()
         {
             for (var i = 0; i < Items.Count; i++)
