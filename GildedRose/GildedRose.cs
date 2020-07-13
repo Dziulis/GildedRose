@@ -48,6 +48,21 @@ namespace GildedRose
             }
         }
 
+        private void HandleAgedBrie(Item item)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void HandleBackStagePass(Item item)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void HandleConjured(Item item)
+        {
+            throw new System.NotImplementedException();
+        }
+
         private static void HandleOther(Item item)
         {
             DecreaseQuality(item);
