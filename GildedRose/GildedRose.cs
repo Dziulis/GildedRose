@@ -50,7 +50,13 @@ namespace GildedRose
 
         private void HandleAgedBrie(Item item)
         {
-            throw new System.NotImplementedException();
+            IncreaseQuality(item);
+            DecreaseSellIn(item);
+
+            if (item.SellIn < 0)
+            {
+                IncreaseQuality(item);
+            }
         }
 
         private void HandleBackStagePass(Item item)
@@ -92,6 +98,16 @@ namespace GildedRose
             }
         }
 
+        private static void IncreaseQuality(Item item)
+        {
+            if (item.Quality >= 50)
+            {
+                return;
+            }
+
+            item.Quality++;
+        }
+
         public void UpdateQualityOld()
         {
             foreach (var item in Items)
@@ -125,22 +141,9 @@ namespace GildedRose
                     DecreaseSellIn(item);
                 }
 
-                if (item.SellIn < 0)
+                if (item.SellIn < 0 && item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (item.Name != "Aged Brie")
-                    {
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            item.Quality = item.Quality - item.Quality;
-                        }
-                    }
-                    else
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-                    }
+                    item.Quality = item.Quality - item.Quality;
                 }
             }
         }
