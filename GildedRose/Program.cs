@@ -17,16 +17,18 @@ namespace GildedRose
 
         private static void WriteOutput(GildedRose gildedRose)
         {
-            var items = gildedRose.GetItems();
-
             for (var i = 0; i < 31; i++)
             {
+                var items = gildedRose.GetItems();
+
                 Console.WriteLine("-------- day " + i + " --------");
                 Console.WriteLine("name, sellIn, quality");
+
                 foreach (var item in items)
                 {
                     Console.WriteLine(item.Name + ", " + item.SellIn + ", " + item.Quality);
                 }
+
                 Console.WriteLine("");
                 gildedRose.UpdateQuality();
             }

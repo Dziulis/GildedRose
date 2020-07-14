@@ -12,9 +12,9 @@ namespace GildedRose
             this.Items = Items;
         }
 
-        public IList<Item> GetItems()
+        public IReadOnlyList<Item> GetItems()
         {
-            return Items;
+            return (IReadOnlyList<Item>) Items;
         }
 
         public void UpdateQuality()
