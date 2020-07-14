@@ -5,16 +5,16 @@ using System.Linq;
 namespace GildedRose.Tests
 {
     [TestFixture]
-    public class AgedBrieTests
+    public class ConjuredItemTests
     {
         [Test]
-        public void GivenAgedBrie_WhenOneDayPassesAndSellInDateAboveZero_ItemQualityIncreasedByOneAndSellInDateDecreased()
+        public void GivenConjuredItem_WhenOneDayPassesAndSellInDateAboveZero_ItemQualityDecreasedByTwoAndSellInDateDecreased()
         {
             var items = new List<Item>
             {
                 new Item
                 {
-                    Name = "Aged Brie", 
+                    Name = "Conjured Item", 
                     SellIn = 10, 
                     Quality = 20
                 }
@@ -25,9 +25,9 @@ namespace GildedRose.Tests
 
             var expectedItem = new Item
             {
-                Name = "Aged Brie",
+                Name = "Conjured Item",
                 SellIn = 9,
-                Quality = 21
+                Quality = 18
             };
 
             var actualItem = app.GetItems().First();
@@ -38,13 +38,13 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void GivenAgedBrie_WhenOneDayPassesAndSellInDateBelowZero_ItemQualityIncreasedByTwoAndSellInDateDecreased()
+        public void GivenConjuredItem_WhenOneDayPassesAndSellInDateBelowZero_ItemQualityDecreasedByFourAndSellInDateDecreased()
         {
             var items = new List<Item>
             {
                 new Item
                 {
-                    Name = "Aged Brie", 
+                    Name = "Conjured Item", 
                     SellIn = 0, 
                     Quality = 20
                 }
@@ -55,9 +55,9 @@ namespace GildedRose.Tests
 
             var expectedItem = new Item
             {
-                Name = "Aged Brie",
+                Name = "Conjured Item",
                 SellIn = -1,
-                Quality = 22
+                Quality = 16
             };
 
             var actualItem = app.GetItems().First();
@@ -68,15 +68,15 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void GivenAgedBrieWithQualityOfFifty_WhenOneDayPassesAndSellInAboveZero_ItemQualityNotIncreasedAndSellInDateDecreased()
+        public void GivenConjuredItemWithQualityOfZero_WhenOneDayPassesAndSellInAboveZero_ItemQualityNotChangedAndSellInDateDecreased()
         {
             var items = new List<Item>
             {
                 new Item
                 {
-                    Name = "Aged Brie", 
+                    Name = "Conjured Item", 
                     SellIn = 1, 
-                    Quality = 50
+                    Quality = 0
                 }
             };
 
@@ -85,9 +85,9 @@ namespace GildedRose.Tests
 
             var expectedItem = new Item
             {
-                Name = "Aged Brie",
+                Name = "Conjured Item",
                 SellIn = 0,
-                Quality = 50
+                Quality = 0
             };
 
             var actualItem = app.GetItems().First();
@@ -98,15 +98,15 @@ namespace GildedRose.Tests
         }
 
         [Test]
-        public void GivenAgedBrieWithQualityOfFifty_WhenOneDayPassesAndSellInDateBelowZero_ItemQualityNotIncreasedAndSellInDateDecreased()
+        public void GivenConjuredItemWithQualityOfZero_WhenOneDayPassesAndSellInDateBelowZero_ItemQualityNotChangedAndSellInDateDecreased()
         {
             var items = new List<Item>
             {
                 new Item
                 {
-                    Name = "Aged Brie", 
+                    Name = "Conjured Item", 
                     SellIn = 0, 
-                    Quality = 50
+                    Quality = 0
                 }
             };
 
@@ -115,9 +115,9 @@ namespace GildedRose.Tests
 
             var expectedItem = new Item
             {
-                Name = "Aged Brie",
+                Name = "Conjured Item",
                 SellIn = -1,
-                Quality = 50
+                Quality = 0
             };
 
             var actualItem = app.GetItems().First();

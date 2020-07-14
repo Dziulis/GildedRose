@@ -30,7 +30,7 @@ namespace GildedRose.Tests
                 Quality = 80
             };
 
-            var actualItem = items.First();
+            var actualItem = app.GetItems().First();
 
             Assert.AreEqual(expectedItem.SellIn, actualItem.SellIn);
             Assert.AreEqual(expectedItem.Name, actualItem.Name);

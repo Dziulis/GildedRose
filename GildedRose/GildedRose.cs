@@ -84,7 +84,13 @@ namespace GildedRose
 
         private void HandleConjured(Item item)
         {
-            throw new System.NotImplementedException();
+            DecreaseQuality(item, 2);
+            DecreaseSellIn(item);
+
+            if (item.SellIn < 0)
+            {
+                DecreaseQuality(item, 2);
+            }
         }
 
         private static void HandleOther(Item item)

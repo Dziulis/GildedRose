@@ -30,7 +30,7 @@ namespace GildedRose.Tests
                 Quality = 21
             };
 
-            var actualItem = items.First();
+            var actualItem = app.GetItems().First();
 
             Assert.AreEqual(expectedItem.SellIn, actualItem.SellIn);
             Assert.AreEqual(expectedItem.Name, actualItem.Name);
@@ -60,7 +60,7 @@ namespace GildedRose.Tests
                 Quality = 22
             };
 
-            var actualItem = items.First();
+            var actualItem = app.GetItems().First();
 
             Assert.AreEqual(expectedItem.SellIn, actualItem.SellIn);
             Assert.AreEqual(expectedItem.Name, actualItem.Name);
@@ -90,7 +90,7 @@ namespace GildedRose.Tests
                 Quality = 50
             };
 
-            var actualItem = items.First();
+            var actualItem = app.GetItems().First();
 
             Assert.AreEqual(expectedItem.SellIn, actualItem.SellIn);
             Assert.AreEqual(expectedItem.Name, actualItem.Name);
@@ -120,7 +120,7 @@ namespace GildedRose.Tests
                 Quality = 23
             };
 
-            var actualItem = items.First();
+            var actualItem = app.GetItems().First();
 
             Assert.AreEqual(expectedItem.SellIn, actualItem.SellIn);
             Assert.AreEqual(expectedItem.Name, actualItem.Name);
@@ -150,7 +150,7 @@ namespace GildedRose.Tests
                 Quality = 50
             };
 
-            var actualItem = items.First();
+            var actualItem = app.GetItems().First();
 
             Assert.AreEqual(expectedItem.SellIn, actualItem.SellIn);
             Assert.AreEqual(expectedItem.Name, actualItem.Name);
@@ -180,7 +180,7 @@ namespace GildedRose.Tests
                 Quality = 0
             };
 
-            var actualItem = items.First();
+            var actualItem = app.GetItems().First();
 
             Assert.AreEqual(expectedItem.SellIn, actualItem.SellIn);
             Assert.AreEqual(expectedItem.Name, actualItem.Name);
