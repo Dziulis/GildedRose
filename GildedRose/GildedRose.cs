@@ -61,7 +61,25 @@ namespace GildedRose
 
         private void HandleBackStagePass(Item item)
         {
-            throw new System.NotImplementedException();
+            IncreaseQuality(item);
+            DecreaseSellIn(item);
+
+            if (item.SellIn < 0)
+            {
+                DecreaseQuality(item, item.Quality);
+                return;
+            }
+
+            if (item.SellIn < 5)
+            {
+                IncreaseQuality(item, 2);
+                return;
+            }
+
+            if (item.SellIn < 10)
+            {
+                IncreaseQuality(item);
+            }
         }
 
         private void HandleConjured(Item item)
@@ -90,62 +108,22 @@ namespace GildedRose
             item.SellIn--;
         }
 
-        private static void DecreaseQuality(Item item)
+        private static void DecreaseQuality(Item item, int amount = 1)
         {
             if (item.Quality > 0)
             {
-                item.Quality--;
+                item.Quality -= amount;
             }
         }
 
-        private static void IncreaseQuality(Item item)
+        private static void IncreaseQuality(Item item, int amount = 1)
         {
             if (item.Quality >= 50)
             {
                 return;
             }
 
-            item.Quality++;
-        }
-
-        public void UpdateQualityOld()
-        {
-            foreach (var item in Items)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
-
-                    if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                    {
-                        if (item.SellIn < 11)
-                        {
-                            if (item.Quality < 50)
-                            {
-                                item.Quality = item.Quality + 1;
-                            }
-                        }
-
-                        if (item.SellIn < 6)
-                        {
-                            if (item.Quality < 50)
-                            {
-                                item.Quality = item.Quality + 1;
-                            }
-                        }
-                    }
-                }
-
-                if (item.Name != "Sulfuras, Hand of Ragnaros")
-                {
-                    DecreaseSellIn(item);
-                }
-
-                if (item.SellIn < 0 && item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    item.Quality = item.Quality - item.Quality;
-                }
-            }
+            item.Quality += amount;
         }
     }
 }

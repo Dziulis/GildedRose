@@ -10,7 +10,15 @@ namespace GildedRose.Tests
         [Test]
         public void GivenAgedBrie_WhenOneDayPassesAndSellInDateAboveZero_ItemQualityIncreasedByOneAndSellInDateDecreased()
         {
-            var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 10, Quality = 20 } };
+            var items = new List<Item>
+            {
+                new Item
+                {
+                    Name = "Aged Brie", 
+                    SellIn = 10, 
+                    Quality = 20
+                }
+            };
 
             var app = new GildedRose(items);
             app.UpdateQuality();
@@ -32,7 +40,15 @@ namespace GildedRose.Tests
         [Test]
         public void GivenAgedBrie_WhenOneDayPassesAndSellInDateBelowZero_ItemQualityIncreasedByTwoAndSellInDateDecreased()
         {
-            var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 0, Quality = 20 } };
+            var items = new List<Item>
+            {
+                new Item
+                {
+                    Name = "Aged Brie", 
+                    SellIn = 0, 
+                    Quality = 20
+                }
+            };
 
             var app = new GildedRose(items);
             app.UpdateQuality();
@@ -54,7 +70,15 @@ namespace GildedRose.Tests
         [Test]
         public void GivenAgedBrieWithQualityOfFifty_WhenOneDayPassesAndSellInAboveZero_ItemQualityNotIncreasedAndSellInDateDecreased()
         {
-            var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 1, Quality = 50 } };
+            var items = new List<Item>
+            {
+                new Item
+                {
+                    Name = "Aged Brie", 
+                    SellIn = 1, 
+                    Quality = 50
+                }
+            };
 
             var app = new GildedRose(items);
             app.UpdateQuality();
@@ -76,7 +100,15 @@ namespace GildedRose.Tests
         [Test]
         public void GivenAgedBrieWithQualityOfFifty_WhenOneDayPassesAndSellInDateBelowZero_ItemQualityNotIncreasedAndSellInDateDecreased()
         {
-            var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 0, Quality = 50 } };
+            var items = new List<Item>
+            {
+                new Item
+                {
+                    Name = "Aged Brie", 
+                    SellIn = 0, 
+                    Quality = 50
+                }
+            };
 
             var app = new GildedRose(items);
             app.UpdateQuality();
